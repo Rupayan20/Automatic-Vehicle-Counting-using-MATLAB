@@ -22,4 +22,3 @@ videoPlayer.Position(3:4) = [650,400];
 while hasFrame(the_Video)
 frame = readFrame(the_Video); the_Object = step(Object_Detector, frame); Noise_Free_Object = imopen(the_Object, Structure); the_Box = step(Bounding_Box, Noise_Free_Object); Detected_Car = insertShape(frame, 'Rectangle', the_Box, 'Color', 'green'); Number_of_Cars = size(the_Box, 1); Detected_Car = insertText(Detected_Car, [10 10], Number_of_Cars, 'BoxOpacity', 1, 'FontSize', 14); step(videoPlayer, Detected_Car);
 end
-
